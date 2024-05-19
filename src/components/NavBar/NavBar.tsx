@@ -6,7 +6,7 @@ import PersonsHeader from "./Persons/PersonsHeader";
 import AddPerson from "./AddPerson/AddPerson";
 import Names from "./Names/Names";
 
-const useStyles = makeStyles()((_) => ({
+const useStyles = makeStyles()(() => ({
   navBar: {
     backgroundColor: customTheme.palette.background.navbar,
     fontSize: customTheme.fontSize.medium,
