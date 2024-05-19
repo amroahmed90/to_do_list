@@ -1,6 +1,6 @@
-import { InitialData } from "../types/types";
+import { Data } from "../types/types";
 
-export const INITIAL_DATA: InitialData = [
+export const INITIAL_DATA: Data = [
   {
     id: "person-0",
     name: "John Doe",
@@ -86,7 +86,7 @@ export const INITIAL_DATA: InitialData = [
     ],
   },
   {
-    id: "person-1",
+    id: "person-2",
     name: "Alice Stones",
     lists: [
       {

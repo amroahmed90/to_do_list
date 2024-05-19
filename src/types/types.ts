@@ -17,4 +17,4 @@ type Person = {
   lists: List[];
 };
 
-export type InitialData = Person[];
+export type Data = Person[];
