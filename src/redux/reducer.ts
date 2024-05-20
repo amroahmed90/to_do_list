@@ -47,7 +47,7 @@ function reducer(state = INITIAL_DATA, action: Actions): Data {
           return {
             ...person,
             lists: person.lists.filter(
-              (list) => list.id !== action.payload.listId
+              (list) => list.id !== action.payload.listId,
             ),
           };
         }
@@ -91,7 +91,7 @@ function reducer(state = INITIAL_DATA, action: Actions): Data {
                 return {
                   ...list,
                   items: list.items.filter(
-                    (item) => item.id !== action.payload.itemId
+                    (item) => item.id !== action.payload.itemId,
                   ),
                 };
               }

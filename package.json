@@ -30,7 +30,10 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "npx eslint ./src/**"
+    "lint": "npx eslint ./src/**",
+    "lint:fix": "npx eslint --fix ./src/**",
+    "prettier:write": "npx prettier . --write",
+    "prettier:check": "npx prettier . --check"
   },
   "eslintConfig": {
     "extends": [
@@ -53,7 +56,9 @@
   "devDependencies": {
     "@eslint/js": "^9.2.0",
     "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
     "eslint-config-typescript": "^3.0.0",
+    "prettier": "3.2.5",
     "typescript-eslint": "^7.8.0"
   },
   "type": "module"

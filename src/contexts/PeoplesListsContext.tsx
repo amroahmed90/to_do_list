@@ -19,18 +19,26 @@ const PesronsListsProvider: React.FC<{ children: ReactNode }> = ({
   const personsWithLists = useSelector((st) => st as Data);
 
   const [activePerson, setActivePerson] = React.useState<Person | null>(
-    personsWithLists.length > 0 ? personsWithLists[0] : null
+    personsWithLists.length > 0 ? personsWithLists[0] : null,
   );
 
   const [activeList, setActiveList] = React.useState<List | null>(
-    activePerson && activePerson.lists.length > 0 ? activePerson.lists[0] : null
+    activePerson && activePerson.lists.length > 0
+      ? activePerson.lists[0]
+      : null,
   );
 
   const updateActivePerson = React.useCallback(
     (personId: string) => {
+      if (!personId) {
+        setActivePerson(null);
+        setActiveList(null);
+        return;
+      }
+
       // make sure person with id exists before setting it
       const person = personsWithLists.filter(
-        (person) => person.id === personId
+        (person) => person.id === personId,
       );
       if (!person || person.length === 0) {
         throw new Error(`Person with id ${personId} not found!`);
@@ -39,7 +47,7 @@ const PesronsListsProvider: React.FC<{ children: ReactNode }> = ({
       setActivePerson(person[0]);
       setActiveList(person[0].lists.length > 0 ? person[0].lists[0] : null);
     },
-    [personsWithLists]
+    [personsWithLists],
   );
 
   const updateActiveList = React.useCallback(
@@ -48,13 +56,13 @@ const PesronsListsProvider: React.FC<{ children: ReactNode }> = ({
       const list = activePerson?.lists.filter((list) => list.id === listId);
       if (!list || list?.length === 0) {
         throw new Error(
-          `Selected person with id ${activePerson?.id} has no list with id ${listId}`
+          `Selected person with id ${activePerson?.id} has no list with id ${listId}`,
         );
       }
 
       setActiveList(list[0]);
     },
-    [activePerson?.id, activePerson?.lists]
+    [activePerson?.id, activePerson?.lists],
   );
 
   const value = React.useMemo<ContextType>(
@@ -64,7 +72,7 @@ const PesronsListsProvider: React.FC<{ children: ReactNode }> = ({
       activeList,
       updateActiveList,
     }),
-    [activeList, activePerson, updateActiveList, updateActivePerson]
+    [activeList, activePerson, updateActiveList, updateActivePerson],
   );
 
   return (

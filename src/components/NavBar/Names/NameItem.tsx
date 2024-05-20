@@ -5,6 +5,11 @@ import { Typography } from "@mui/material";
 import { makeStyles } from "tss-react/mui";
 import { customTheme } from "../../../customTheme/theme";
 import { usePersonsLists } from "../../../contexts/PeoplesListsContext";
+import { useDispatch, useSelector } from "react-redux";
+import { removePerson } from "../../../redux/actions";
+import { Actions } from "../../../redux/actionTypes";
+import { Dispatch } from "@reduxjs/toolkit";
+import { Data } from "../../../types/types";
 
 // styles
 const useStyles = makeStyles()(() => ({
@@ -63,9 +68,28 @@ const NameItem = ({ id, name }: NameItemProps) => {
   // context
   const { activePerson, updateActivePerson } = usePersonsLists();
 
+  // redux
+  const personsWithLists = useSelector((st) => st as Data);
+  const dispatch = useDispatch<Dispatch<Actions>>();
+
   const isActivePerson = React.useMemo(
     () => activePerson?.id === id,
-    [activePerson?.id, id]
+    [activePerson?.id, id],
+  );
+
+  const handleRemovePerson = React.useCallback(
+    (event: React.MouseEvent) => {
+      event.stopPropagation();
+      dispatch(removePerson({ personId: id }));
+      const remainingPersons = personsWithLists.filter(
+        (person) => person.id !== id,
+      );
+      const newActivePersonId =
+        remainingPersons.length > 0 ? remainingPersons[0].id : "";
+
+      updateActivePerson(newActivePersonId);
+    },
+    [dispatch, id, personsWithLists, updateActivePerson],
   );
 
   return (
@@ -78,9 +102,9 @@ const NameItem = ({ id, name }: NameItemProps) => {
         {name}
       </Typography>
       {isActivePerson && (
-        <span className={classes.iconWrapper}>
+        <Box className={classes.iconWrapper} onClick={handleRemovePerson}>
           <PersonRemoveIcon className={classes.icon} />
-        </span>
+        </Box>
       )}
     </Box>
   );
