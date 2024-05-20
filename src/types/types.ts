@@ -1,17 +1,17 @@
-type Item = {
+export type Item = {
   id: string;
   name: string;
   quantity: number;
   completed: boolean;
 };
 
-type List = {
+export type List = {
   id: string;
   category: string;
   items: Item[];
 };
 
-type Person = {
+export type Person = {
   id: string;
   name: string;
   lists: List[];

@@ -1,10 +1,10 @@
-import Box from "@mui/system/Box";
 import React from "react";
-import { activePerson } from "../../../signals/signals";
+import Box from "@mui/system/Box";
 import PersonRemoveIcon from "@mui/icons-material/PersonRemove";
 import { Typography } from "@mui/material";
 import { makeStyles } from "tss-react/mui";
 import { customTheme } from "../../../customTheme/theme";
+import { usePersonsLists } from "../../../contexts/PeoplesListsContext";
 
 // styles
 const useStyles = makeStyles()(() => ({
@@ -13,6 +13,7 @@ const useStyles = makeStyles()(() => ({
     flexGrow: 1,
     textAlign: "center",
     cursor: "pointer",
+    userSelect: "none",
     borderInline: `2px solid ${customTheme.palette.background.navbar}`,
     "&:hover": {
       backgroundColor: customTheme.palette.background.sidebar,
@@ -58,12 +59,20 @@ type NameItemProps = {
 
 const NameItem = ({ id, name }: NameItemProps) => {
   const { classes } = useStyles();
-  const isActivePerson = activePerson.value === id;
+
+  // context
+  const { activePerson, updateActivePerson } = usePersonsLists();
+
+  const isActivePerson = React.useMemo(
+    () => activePerson?.id === id,
+    [activePerson?.id, id]
+  );
 
   return (
     <Box
       key={id}
       className={`${classes.tab} ${isActivePerson ? classes.activeTab : ""}`}
+      onClick={() => updateActivePerson(id)}
     >
       <Typography variant="inherit" className={classes.text}>
         {name}
