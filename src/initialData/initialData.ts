@@ -3,7 +3,7 @@ import { Data } from "../types/types";
 export const INITIAL_DATA: Data = [
   {
     id: "person-0",
-    name: "John Doe",
+    name: "John",
     lists: [
       {
         id: "list-0",
@@ -45,7 +45,7 @@ export const INITIAL_DATA: Data = [
   },
   {
     id: "person-1",
-    name: "Jina Doe",
+    name: "Jina",
     lists: [
       {
         id: "list-0",
@@ -87,7 +87,7 @@ export const INITIAL_DATA: Data = [
   },
   {
     id: "person-2",
-    name: "Alice Stones",
+    name: "Alice",
     lists: [
       {
         id: "list-0",
