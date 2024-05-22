@@ -1,7 +1,7 @@
 import React from "react";
 import Box from "@mui/system/Box";
 import PersonRemoveIcon from "@mui/icons-material/PersonRemove";
-import { Typography } from "@mui/material";
+import { darken, Typography } from "@mui/material";
 import { makeStyles } from "tss-react/mui";
 import { customTheme } from "../../../customTheme/theme";
 import { usePersonsLists } from "../../../contexts/PeoplesListsContext";
@@ -21,13 +21,14 @@ const useStyles = makeStyles()(() => ({
     userSelect: "none",
     borderInline: `2px solid ${customTheme.palette.background.navbar}`,
     "&:hover": {
-      backgroundColor: customTheme.palette.background.sidebar,
+      backgroundColor: darken(customTheme.palette.background.sidebar, 0.2),
     },
   },
   activeTab: {
     backgroundColor: customTheme.palette.background.sidebar,
     padding: `-${customTheme.padding.medium}`,
     "&:hover": {
+      backgroundColor: customTheme.palette.background.sidebar,
       cursor: "default",
     },
   },

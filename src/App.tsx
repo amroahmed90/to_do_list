@@ -1,14 +1,12 @@
 import React from "react";
 import NavBar from "./components/NavBar/NavBar";
-import SideNavBar from "./components/SideNaveBar";
-import List from "./components/List";
+import MainPage from "./components/MainPage/MainPage";
 
 function App() {
   return (
     <div className="App">
       <NavBar />
-      <SideNavBar />
-      <List />
+      <MainPage />
     </div>
   );
 }

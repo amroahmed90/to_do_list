@@ -5,6 +5,7 @@ import { customTheme } from "../../customTheme/theme";
 import PersonsHeader from "./Persons/PersonsHeader";
 import AddPerson from "./AddPerson/AddPerson";
 import Names from "./Names/Names";
+import { darken } from "@mui/system";
 
 const useStyles = makeStyles()(() => ({
   navBar: {
@@ -15,6 +16,9 @@ const useStyles = makeStyles()(() => ({
     color: customTheme.fontColor.light,
     display: "flex",
     justifyContent: "space-between",
+    boxShadow: `0 5px 20px 0 ${darken(customTheme.palette.background.sidebar, 0.4)}`,
+    position: "relative",
+    zIndex: 2,
   },
 }));
 
