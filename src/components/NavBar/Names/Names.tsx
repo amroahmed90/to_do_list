@@ -3,10 +3,12 @@ import { makeStyles } from "tss-react/mui";
 import NameItem from "./NameItem";
 import { useSelector } from "react-redux";
 import { Data } from "../../../types/types";
+import { Box } from "@mui/material";
 
 const useStyles = makeStyles()(() => ({
-  root: {
-    flex: 12,
+  names: {
+    gridColumn: "2 / 3",
+    gridRow: "1 / 2",
     display: "flex",
     flexDirection: "row",
   },
@@ -17,11 +19,11 @@ const Names = () => {
   const personsWithLists = useSelector((st) => st as Data);
 
   return (
-    <div className={classes.root}>
+    <Box className={classes.names}>
       {personsWithLists.map(({ id, name }) => (
         <NameItem key={id} id={id} name={name} />
       ))}
-    </div>
+    </Box>
   );
 };
 

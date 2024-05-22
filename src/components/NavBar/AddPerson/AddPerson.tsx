@@ -42,7 +42,9 @@ const useStyles = makeStyles()(() => ({
     },
   },
   button: {
-    flex: 0.5,
+    gridColumn: "3 / 4",
+    gridRow: "1 / 2",
+    backgroundColor: customTheme.palette.background.dark,
     color: customTheme.palette.background.activeTab,
     border: `2px solid ${customTheme.palette.background.activeTab}`,
     borderRadius: customTheme.fontSize.smaller,

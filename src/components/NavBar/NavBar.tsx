@@ -9,13 +9,16 @@ import { darken } from "@mui/system";
 
 const useStyles = makeStyles()(() => ({
   navBar: {
+    gridColumn: "1 / -1",
+    gridRow: "1 / 2",
+    display: "grid",
+    gridTemplateColumns: "3fr 10fr 1fr",
+    gap: "2px",
     backgroundColor: customTheme.palette.background.navbar,
-    fontSize: customTheme.fontSize.medium,
+    fontSize: customTheme.fontSize.large,
     textAlign: "center",
     fontWeight: customTheme.fontWeight.bold,
     color: customTheme.fontColor.light,
-    display: "flex",
-    justifyContent: "space-between",
     boxShadow: `0 5px 20px 0 ${darken(customTheme.palette.background.sidebar, 0.4)}`,
     position: "relative",
     zIndex: 2,

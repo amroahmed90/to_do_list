@@ -1,3 +1,8 @@
 .App {
   text-align: center;
+  display: grid;
+  grid-template-columns: 3fr 10fr 1fr;
+  grid-template-rows: min-content auto;
+  justify-items: stretch;
+  gap: 2px;
 }

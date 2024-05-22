@@ -6,9 +6,11 @@ import SideNavBar from "./SideNavBar/SideNaveBar";
 
 const useStyles = makeStyles()(() => ({
   mainPageContainer: {
-    textAlign: "center",
-    display: "flex",
-    justifyContent: "space-between",
+    gridColumn: "1 / -1",
+    gridRow: "2 / -1",
+    display: "grid",
+    gridTemplateColumns: "3fr 11fr",
+    gridTemplateRows: "auto",
   },
 }));
 

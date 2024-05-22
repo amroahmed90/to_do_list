@@ -6,17 +6,11 @@ import { customTheme } from "../../../customTheme/theme";
 // styles
 const useStyles = makeStyles()(() => ({
   list: {
+    gridColumn: "2 / -1",
+    gridRow: "1 / -1",
     backgroundColor: customTheme.palette.background.activeTab,
-    flex: 11.2,
     paddingInline: "5vw",
     paddingBlock: customTheme.padding.larger,
-    "&::after": {
-      content: `""`,
-      display: "block",
-      flex: 0.5,
-      padding: customTheme.padding.small,
-      margin: customTheme.padding.small,
-    },
   },
 }));
 

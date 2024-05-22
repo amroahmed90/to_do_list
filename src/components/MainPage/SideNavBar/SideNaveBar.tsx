@@ -6,12 +6,13 @@ import { customTheme } from "../../../customTheme/theme";
 // styles
 const useStyles = makeStyles()(() => ({
   sideNavBar: {
+    gridColumn: "1 / 2",
+    gridRow: "1 / -1",
     boxSizing: "border-box",
     borderRight: `2px solid ${customTheme.palette.background.activeTab}`,
     backgroundColor: customTheme.palette.background.sidebar,
     paddingInline: customTheme.padding.medium,
     paddingBlock: customTheme.padding.larger,
-    flex: 3,
     height: "100vh",
   },
 }));

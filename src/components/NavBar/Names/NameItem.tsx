@@ -19,7 +19,6 @@ const useStyles = makeStyles()(() => ({
     textAlign: "center",
     cursor: "pointer",
     userSelect: "none",
-    borderInline: `2px solid ${customTheme.palette.background.navbar}`,
     "&:hover": {
       backgroundColor: darken(customTheme.palette.background.sidebar, 0.2),
     },
@@ -46,7 +45,7 @@ const useStyles = makeStyles()(() => ({
     height: customTheme.padding.medium,
   },
   icon: {
-    marginLeft: customTheme.padding.medium,
+    // marginLeft: customTheme.padding.medium,
     display: "inline-block",
     position: "absolute",
     top: "0.75rem",

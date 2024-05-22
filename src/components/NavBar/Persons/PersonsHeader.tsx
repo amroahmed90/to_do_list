@@ -5,10 +5,14 @@ import { customTheme } from "../../../customTheme/theme";
 
 const useStyles = makeStyles()(() => ({
   header: {
+    gridColumn: "1 / 2",
+    gridRow: "1 / 2",
+    alignContent: "center",
+    alignSelf: "stretch",
+    backgroundColor: customTheme.palette.background.dark,
     borderRight: `2px solid ${customTheme.palette.background.activeTab}`,
-    width: customTheme.grids.left,
+    borderBottom: `2px solid ${customTheme.palette.background.activeTab}`,
     padding: customTheme.padding.medium,
-    flex: 3,
   },
 }));
 
